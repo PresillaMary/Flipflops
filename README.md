@@ -43,14 +43,80 @@ In T flip flop, "T" defines the term "Toggle". In SR Flip Flop, we provide only 
 
 
 ## Program:
-
+~~~
+SR flipflop
+module exp5sr(s,r,clk,q,qbar);
+input s,r,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+q=s|((~r)&q);
+end
+assign qbar=~q;
+endmodule
+~~~
+~~~
+D flipflop
+module exp5d(d,clk,q,qbar);
+input d,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+q=((~q)&d)|(q&d);
+end
+assign qbar=~q;
+endmodule
+~~~
+~~~
+JK flipflop
+module exp5jk(j,k,clk,q,qbar);
+input j,k,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+q=((~q)&j)|(q&(~k));
+end
+assign qbar=~q;
+endmodule
+~~~
+~~~
+T flipflop
+module exp5t(t,clk,q,qbar);
+input t,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+q=((~q)&t)|(q&(~t));
+end
+assign qbar=~q;
+endmodule
+~~~
 
 ## RTL Schematic:
+![sr flipflop](https://github.com/PresillaMary/Flipflops/assets/129305503/def99c9b-0c21-4939-ba89-d273ba86e38c)
+
+![d flipflop rtl](https://github.com/PresillaMary/Flipflops/assets/129305503/b7b5eae2-2fdf-4996-bb3f-660d2f9b04eb)
+
+![jk flipflop rtl](https://github.com/PresillaMary/Flipflops/assets/129305503/7a82a1f6-e643-452f-82ae-f38917efd705)
+
+![t rtl](https://github.com/PresillaMary/Flipflops/assets/129305503/83007243-bff0-4f35-99c1-0bad8fdf1d2c)
 
 
 
 
 ## Timing Diagram:
+
+![sr waveform](https://github.com/PresillaMary/Flipflops/assets/129305503/65889dda-74fc-4dc6-ae29-1792b0275622)
+
+![dflipflop](https://github.com/PresillaMary/Flipflops/assets/129305503/deb7ece2-b03b-470c-a39e-26456177913a)
+
+![jk flipflop waveform](https://github.com/PresillaMary/Flipflops/assets/129305503/be605b1c-e599-441a-b07f-153d7342a94b)
+
+![t timing](https://github.com/PresillaMary/Flipflops/assets/129305503/11ae325d-e6b2-4dbe-ae2d-8aaac742e619)
 
 
 
